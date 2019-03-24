@@ -3,22 +3,25 @@ package hello;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
-public class Greeting {
+import java.io.Serializable;
 
-    private final long id;
-    private final String content;
+public class Greeting implements Serializable {
+
+    private final long _id;
+    private final String _content;
 
     @JsonCreator
     public Greeting(@JsonProperty("id") long id, @JsonProperty("content") String content) {
-        this.id = id;
-        this.content = content;
+        this._id = id;
+        this._content = content;
     }
 
     public long getId() {
-        return id;
+        return _id;
     }
 
     public String getContent() {
-        return content;
+        return _content;
     }
+
 }

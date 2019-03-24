@@ -1,0 +1,12 @@
+version: '3'
+services:
+#  web:
+#    build: .
+#    environment:
+#      - SPRING_PROFILES_ACTIVE=local
+#    ports:
+#      - "8080:8080"
+  redis:
+    image: "redis:4.0"
+    ports:
+      - "6379:6379"
