@@ -13,12 +13,16 @@ import org.springframework.context.annotation.Bean;
 @EnableCaching
 public class Application {
 
-    @Autowired
-    private RedissonClient redisson;
+    private RedissonClient _redisson;
 
     @Bean
     public CacheManager cacheManager() {
-        return new RedissonSpringCacheManager(redisson, "classpath:caches.yml");
+        return new RedissonSpringCacheManager(_redisson, "classpath:caches.yml");
+    }
+
+    @Autowired
+    Application(RedissonClient redisson) {
+        _redisson = redisson;
     }
 
     public static void main(String[] args) {
